@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"mock-fs",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "mock-fs",
+    "description": "api documentation for [mock-fs (v4.2.0)](https://github.com/tschaub/mock-fs) [![npm package](https://img.shields.io/npm/v/npmdoc-mock-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mock-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mock-fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mock-fs)",
     "devDependencies": {
-        "mock-fs": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "mock-fs": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-mock-fs",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-mock-fs",
+    "keywords": [
+        "documentation",
+        "mock-fs"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_mock_fs.js",
+    "name": "npmdoc-mock-fs",
+    "nameAlias": "npmdoc_mock_fs",
+    "nameOriginal": "npmdoc-mock-fs",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-mock-fs.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
