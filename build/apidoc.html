@@ -1,0 +1,4980 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/tschaub/mock-fs"
+
+    >mock-fs (v4.2.0)</a>
+</h1>
+<h4>A configurable mock file system.  You know, for testing.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs">module mock-fs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding">
+            function <span class="apidocSignatureSpan">mock-fs.</span>binding
+            <span class="apidocSignatureSpan">(system)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor">
+            function <span class="apidocSignatureSpan">mock-fs.</span>descriptor
+            <span class="apidocSignatureSpan">(flags)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory">
+            function <span class="apidocSignatureSpan">mock-fs.</span>directory
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file">
+            function <span class="apidocSignatureSpan">mock-fs.</span>file
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem">
+            function <span class="apidocSignatureSpan">mock-fs.</span>filesystem
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.getMockRoot">
+            function <span class="apidocSignatureSpan">mock-fs.</span>getMockRoot
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item">
+            function <span class="apidocSignatureSpan">mock-fs.</span>item
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.restore">
+            function <span class="apidocSignatureSpan">mock-fs.</span>restore
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink">
+            function <span class="apidocSignatureSpan">mock-fs.</span>symlink
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>binding.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>descriptor.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>directory.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>file.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>filesystem.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>item.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mock-fs.</span>symlink.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.binding">module mock-fs.binding</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.binding">
+            function <span class="apidocSignatureSpan">mock-fs.</span>binding
+            <span class="apidocSignatureSpan">(system)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.binding.prototype">module mock-fs.binding.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.StatWatcher">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>StatWatcher
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype._getDescriptorById">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_getDescriptorById
+            <span class="apidocSignatureSpan">(fd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype._trackDescriptor">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_trackDescriptor
+            <span class="apidocSignatureSpan">(descriptor)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype._untrackDescriptorById">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_untrackDescriptorById
+            <span class="apidocSignatureSpan">(fd)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.access">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>access
+            <span class="apidocSignatureSpan">(filepath, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.chmod">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>chmod
+            <span class="apidocSignatureSpan">(pathname, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.chown">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>chown
+            <span class="apidocSignatureSpan">(pathname, uid, gid, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.close">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>close
+            <span class="apidocSignatureSpan">(fd, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.fchmod">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fchmod
+            <span class="apidocSignatureSpan">(fd, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.fchown">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fchown
+            <span class="apidocSignatureSpan">(fd, uid, gid, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.fdatasync">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fdatasync
+            <span class="apidocSignatureSpan">(fd, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.fstat">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fstat
+            <span class="apidocSignatureSpan">(fd, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.fsync">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fsync
+            <span class="apidocSignatureSpan">(fd, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.ftruncate">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>ftruncate
+            <span class="apidocSignatureSpan">(fd, len, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.futimes">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>futimes
+            <span class="apidocSignatureSpan">(fd, atime, mtime, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.getSystem">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>getSystem
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.link">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>link
+            <span class="apidocSignatureSpan">(srcPath, destPath, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.lstat">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>lstat
+            <span class="apidocSignatureSpan">(filepath, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.mkdir">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>mkdir
+            <span class="apidocSignatureSpan">(pathname, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.open">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>open
+            <span class="apidocSignatureSpan">(pathname, flags, mode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.read">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>read
+            <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.readdir">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>readdir
+            <span class="apidocSignatureSpan">(dirpath, encoding, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.readlink">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>readlink
+            <span class="apidocSignatureSpan">(pathname, encoding, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.realpath">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>realpath
+            <span class="apidocSignatureSpan">(filepath, encoding, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.rename">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>rename
+            <span class="apidocSignatureSpan">(oldPath, newPath, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.rmdir">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>rmdir
+            <span class="apidocSignatureSpan">(pathname, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.setSystem">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>setSystem
+            <span class="apidocSignatureSpan">(system)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.stat">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>stat
+            <span class="apidocSignatureSpan">(filepath, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.symlink">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>symlink
+            <span class="apidocSignatureSpan">(srcPath, destPath, type, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.truncate">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>truncate
+            <span class="apidocSignatureSpan">(fd, len, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.unlink">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>unlink
+            <span class="apidocSignatureSpan">(pathname, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.utimes">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>utimes
+            <span class="apidocSignatureSpan">(pathname, atime, mtime, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.write">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>write
+            <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.writeBuffer">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeBuffer
+            <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.writeBuffers">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeBuffers
+            <span class="apidocSignatureSpan">(fd, buffers, position, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.binding.prototype.writeString">
+            function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeString
+            <span class="apidocSignatureSpan">(fd, string, position, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.descriptor">module mock-fs.descriptor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.descriptor">
+            function <span class="apidocSignatureSpan">mock-fs.</span>descriptor
+            <span class="apidocSignatureSpan">(flags)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.descriptor.prototype">module mock-fs.descriptor.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.getItem">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>getItem
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.getPosition">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>getPosition
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isAppend">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isAppend
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isCreate">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isCreate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isExclusive">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isExclusive
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isRead">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isRead
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isTruncate">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isTruncate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.isWrite">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isWrite
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.setItem">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>setItem
+            <span class="apidocSignatureSpan">(item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.descriptor.prototype.setPosition">
+            function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>setPosition
+            <span class="apidocSignatureSpan">(position)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.directory">module mock-fs.directory</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.directory">
+            function <span class="apidocSignatureSpan">mock-fs.</span>directory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.super_">
+            function <span class="apidocSignatureSpan">mock-fs.directory.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.directory.prototype">module mock-fs.directory.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.prototype.addItem">
+            function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>addItem
+            <span class="apidocSignatureSpan">(name, item)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.prototype.getItem">
+            function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>getItem
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.prototype.getStats">
+            function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>getStats
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.prototype.list">
+            function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>list
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.directory.prototype.removeItem">
+            function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>removeItem
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.file">module mock-fs.file</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file.file">
+            function <span class="apidocSignatureSpan">mock-fs.</span>file
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file.super_">
+            function <span class="apidocSignatureSpan">mock-fs.file.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.file.prototype">module mock-fs.file.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file.prototype.getContent">
+            function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>getContent
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file.prototype.getStats">
+            function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>getStats
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.file.prototype.setContent">
+            function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>setContent
+            <span class="apidocSignatureSpan">(content)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.filesystem">module mock-fs.filesystem</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.filesystem">
+            function <span class="apidocSignatureSpan">mock-fs.</span>filesystem
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.create">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>create
+            <span class="apidocSignatureSpan">(paths, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.directory">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>directory
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.file">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>file
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.getPathParts">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>getPathParts
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.symlink">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>symlink
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.filesystem.prototype">module mock-fs.filesystem.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.prototype.getItem">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.prototype.</span>getItem
+            <span class="apidocSignatureSpan">(filepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.filesystem.prototype.getRoot">
+            function <span class="apidocSignatureSpan">mock-fs.filesystem.prototype.</span>getRoot
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.item">module mock-fs.item</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.item">
+            function <span class="apidocSignatureSpan">mock-fs.</span>item
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.item.prototype">module mock-fs.item.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.canExecute">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canExecute
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.canRead">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canRead
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.canWrite">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canWrite
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getATime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getATime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getBirthtime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getBirthtime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getCTime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getCTime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getGid">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getGid
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getMTime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getMTime
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getMode">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getMode
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getStats">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getStats
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.getUid">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getUid
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setATime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setATime
+            <span class="apidocSignatureSpan">(atime)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setBirthtime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setBirthtime
+            <span class="apidocSignatureSpan">(birthtime)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setCTime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setCTime
+            <span class="apidocSignatureSpan">(ctime)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setGid">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setGid
+            <span class="apidocSignatureSpan">(gid)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setMTime">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setMTime
+            <span class="apidocSignatureSpan">(mtime)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setMode">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setMode
+            <span class="apidocSignatureSpan">(mode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.setUid">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setUid
+            <span class="apidocSignatureSpan">(uid)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.item.prototype.toString">
+            function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.symlink">module mock-fs.symlink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink.symlink">
+            function <span class="apidocSignatureSpan">mock-fs.</span>symlink
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink.super_">
+            function <span class="apidocSignatureSpan">mock-fs.symlink.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mock-fs.symlink.prototype">module mock-fs.symlink.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink.prototype.getPath">
+            function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>getPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink.prototype.getStats">
+            function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>getStats
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mock-fs.symlink.prototype.setPath">
+            function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>setPath
+            <span class="apidocSignatureSpan">(pathname)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs" id="apidoc.module.mock-fs">module mock-fs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding" id="apidoc.element.mock-fs.binding">
+        function <span class="apidocSignatureSpan">mock-fs.</span>binding
+        <span class="apidocSignatureSpan">(system)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Binding(system) {
+
+<span class="apidocCodeCommentSpan">  /**
+   * Mock file system.
+   * @type {FileSystem}
+   */
+</span>  this._system = system;
+
+  /**
+   * Stats constructor.
+   * @type {function}
+   */
+  this.Stats = Stats;
+
+  /**
+   * Lookup of open files.
+   * @type {Object.&#x3c;number, FileDescriptor&#x3e;}
+   */
+  this._openFiles = {};
+
+  /**
+   * Counter for file descriptors.
+   * @type {number}
+   */
+  this._counter = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+// after a test runs
+mock.restore();
+```
+
+## Upgrading to version 4
+
+Instead of overriding all methods of the built-in `fs` module, the library now overrides `process.<span class="apidocCodeKeywordSpan
+">binding</span>(&#x27;fs&#x27;)`.  The purpose of this change is to avoid conflicts with other libraries that override `fs` methods
+ (e.g. `graceful-fs`) and to make it possible to work with multiple Node releases without maintaining copied and slightly modified
+ versions of Node&#x27;s `fs` module.
+
+Breaking changes:
+
+* The `mock.fs()` function has been removed.  This returned an object with `fs`-like methods without overriding the built-in `fs
+` module.
+* The object created by `fs.Stats` is no longer an instance of `fs.Stats` (though it has all the same properties and methods).
+* Lazy `require()` do not use the real filesystem.
+* Tests are no longer run in Node &#x3c; 4.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor" id="apidoc.element.mock-fs.descriptor">
+        function <span class="apidocSignatureSpan">mock-fs.</span>descriptor
+        <span class="apidocSignatureSpan">(flags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileDescriptor(flags) {
+
+<span class="apidocCodeCommentSpan">  /**
+   * Flags.
+   * @type {number}
+   */
+</span>  this._flags = flags;
+
+  /**
+   * File system item.
+   * @type {Item}
+   */
+  this._item = null;
+
+  /**
+   * Current file position.
+   * @type {number}
+   */
+  this._position = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory" id="apidoc.element.mock-fs.directory">
+        function <span class="apidocSignatureSpan">mock-fs.</span>directory
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">directory = function (config) {
+  config = config || {};
+  return function() {
+    var dir = new Directory();
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      dir.setMode(config.mode);
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      dir.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      dir.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;items&#x27;)) {
+      for (var name in config.items) {
+        populate(dir, name, config.items[name]);
+      }
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      dir.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      dir.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      dir.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      dir.setBirthtime(config.birthtime);
+    }
+    return dir;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       file2: new Buffer([1, 2, 3, 4])
+     }
+   }
+ }
+});
+```
+
+To create a directory with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">directory</span>()`](mockdirectoryproperties) function described below.
+
+### &#x3c;a id=&#x27;mockdirectoryproperties&#x27;&#x3e;`mock.directory(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new directories.  Supported properties:
+
+* **mode** - `number` Directory mode (permission and sticky bits).  Defaults to `0777`.
+* **uid** - `number` The user id.  Defaults to `process.getuid()`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file" id="apidoc.element.mock-fs.file">
+        function <span class="apidocSignatureSpan">mock-fs.</span>file
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">file = function (config) {
+  config = config || {};
+  return function() {
+    var file = new File();
+    if (config.hasOwnProperty(&#x27;content&#x27;)) {
+      file.setContent(config.content);
+    }
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      file.setMode(config.mode);
+    } else {
+      file.setMode(438); // 0666
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      file.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      file.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      file.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      file.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      file.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      file.setBirthtime(config.birthtime);
+    }
+    return file;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+When `config` property values are a `string` or `Buffer`, a file is created with the provided content.  For example, the following
+ configuration creates a single file with string content (in addition to the two default directories).
+```js
+mock({
+ &#x27;path/to/file.txt&#x27;: &#x27;file content here&#x27;
+});
+```
+
+To create a file with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">file</span>()`](#mockfileproperties) function described below.
+
+### &#x3c;a id=&#x27;mockfileproperties&#x27;&#x3e;`mock.file(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new files.  Supported properties:
+
+* **content** - `string|Buffer` File contents.
+* **mode** - `number` File mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem" id="apidoc.element.mock-fs.filesystem">
+        function <span class="apidocSignatureSpan">mock-fs.</span>filesystem
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileSystem(options) {
+  options = options || {};
+
+  var createCwd = &#x27;createCwd&#x27; in options ? options.createCwd : true;
+  var createTmp = &#x27;createTmp&#x27; in options ? options.createTmp : true;
+
+  var root = new Directory();
+
+  // populate with default directories
+  var defaults = [];
+  if (createCwd) {
+    defaults.push(process.cwd());
+  }
+
+  if (createTmp) {
+    defaults.push(os.tmpdir &#x26;&#x26; os.tmpdir() || os.tmpDir());
+  }
+
+  defaults.forEach(function(dir) {
+    var parts = getPathParts(dir);
+    var directory = root;
+    var i, ii, name, candidate;
+    for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+      name = parts[i];
+      candidate = directory.getItem(name);
+      if (!candidate) {
+        directory = directory.addItem(name, new Directory());
+      } else if (candidate instanceof Directory) {
+        directory = candidate;
+      } else {
+        throw new Error(&#x27;Failed to create directory: &#x27; + dir);
+      }
+    }
+  });
+
+<span class="apidocCodeCommentSpan">  /**
+   * Root directory.
+   * @type {Directory}
+   */
+</span>  this._root = root;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.getMockRoot" id="apidoc.element.mock-fs.getMockRoot">
+        function <span class="apidocSignatureSpan">mock-fs.</span>getMockRoot
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMockRoot = function () {
+  if (typeof realBinding.getSystem === &#x27;undefined&#x27;) {
+    return {};
+  } else {
+    return realBinding.getSystem().getRoot();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item" id="apidoc.element.mock-fs.item">
+        function <span class="apidocSignatureSpan">mock-fs.</span>item
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Item() {
+
+  var now = Date.now();
+
+<span class="apidocCodeCommentSpan">  /**
+   * Access time.
+   * @type {Date}
+   */
+</span>  this._atime = new Date(now);
+
+  /**
+   * Change time.
+   * @type {Date}
+   */
+  this._ctime = new Date(now);
+
+  /**
+   * Birth time.
+   * @type {Date}
+   */
+  this._birthtime = new Date(now);
+
+  /**
+   * Modification time.
+   * @type {Date}
+   */
+  this._mtime = new Date(now);
+
+  /**
+   * Permissions.
+   */
+  this._mode = 438; // 0666
+
+  /**
+   * User id.
+   * @type {number}
+   */
+  this._uid = getUid();
+
+  /**
+   * Group id.
+   * @type {number}
+   */
+  this._gid = getGid();
+
+  /**
+   * Item number.
+   * @type {number}
+   */
+  this._id = ++counter;
+
+  /**
+   * Number of links to this item.
+   */
+  this.links = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.restore" id="apidoc.element.mock-fs.restore">
+        function <span class="apidocSignatureSpan">mock-fs.</span>restore
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restore = function () {
+  restoreBinding();
+  restoreProcess();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    &#x27;empty-dir&#x27;: {/** empty directory */}
+  },
+  &#x27;path/to/some.png&#x27;: new Buffer([8, 6, 7, 5, 3, 0, 9]),
+  &#x27;some/other/path&#x27;: {/** another empty directory */}
+});
+```
+
+When you are ready to restore the `fs` module (so that it is backed by your real file system), call [`mock.<span class="apidocCodeKeywordSpan
+">restore</span>()`](#mockrestore). Note that calling this may be **mandatory** in some cases. See [istanbuljs/nyc#324](https://
+github.com/istanbuljs/nyc/issues/324#issuecomment-234018654)
+
+```js
+// after a test runs
+mock.restore();
+```
+
+## Upgrading to version 4
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink" id="apidoc.element.mock-fs.symlink">
+        function <span class="apidocSignatureSpan">mock-fs.</span>symlink
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">symlink = function (config) {
+  config = config || {};
+  return function() {
+    var link = new SymbolicLink();
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      link.setMode(config.mode);
+    } else {
+      link.setMode(438); // 0666
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      link.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      link.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;path&#x27;)) {
+      link.setPath(config.path);
+    } else {
+      throw new Error(&#x27;Missing &#x22;path&#x22; property&#x27;);
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      link.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      link.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      link.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      link.setBirthtime(config.birthtime);
+    }
+    return link;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+Note that if you want to create a directory with the default properties, you can provide an `Object` directly instead of calling
+ `mock.directory()`.
+
+### Creating symlinks
+
+Using a `string` or a `Buffer` is a shortcut for creating files with default properties.  Using an `Object` is a shortcut for creating
+ a directory with default properties.  There is no shortcut for creating symlinks.  To create a symlink, you need to call the [`
+mock.<span class="apidocCodeKeywordSpan">symlink</span>()`](#mocksymlinkproperties) function described below.
+
+### &#x3c;a id=&#x27;mocksymlinkproperties&#x27;&#x3e;`mock.symlink(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new symlinks.  Supported properties:
+
+* **path** - `string` Path to the source (required).
+* **mode** - `number` Symlink mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.binding" id="apidoc.module.mock-fs.binding">module mock-fs.binding</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.binding" id="apidoc.element.mock-fs.binding.binding">
+        function <span class="apidocSignatureSpan">mock-fs.</span>binding
+        <span class="apidocSignatureSpan">(system)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Binding(system) {
+
+<span class="apidocCodeCommentSpan">  /**
+   * Mock file system.
+   * @type {FileSystem}
+   */
+</span>  this._system = system;
+
+  /**
+   * Stats constructor.
+   * @type {function}
+   */
+  this.Stats = Stats;
+
+  /**
+   * Lookup of open files.
+   * @type {Object.&#x3c;number, FileDescriptor&#x3e;}
+   */
+  this._openFiles = {};
+
+  /**
+   * Counter for file descriptors.
+   * @type {number}
+   */
+  this._counter = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+// after a test runs
+mock.restore();
+```
+
+## Upgrading to version 4
+
+Instead of overriding all methods of the built-in `fs` module, the library now overrides `process.<span class="apidocCodeKeywordSpan
+">binding</span>(&#x27;fs&#x27;)`.  The purpose of this change is to avoid conflicts with other libraries that override `fs` methods
+ (e.g. `graceful-fs`) and to make it possible to work with multiple Node releases without maintaining copied and slightly modified
+ versions of Node&#x27;s `fs` module.
+
+Breaking changes:
+
+* The `mock.fs()` function has been removed.  This returned an object with `fs`-like methods without overriding the built-in `fs
+` module.
+* The object created by `fs.Stats` is no longer an instance of `fs.Stats` (though it has all the same properties and methods).
+* Lazy `require()` do not use the real filesystem.
+* Tests are no longer run in Node &#x3c; 4.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.binding.prototype" id="apidoc.module.mock-fs.binding.prototype">module mock-fs.binding.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.StatWatcher" id="apidoc.element.mock-fs.binding.prototype.StatWatcher">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>StatWatcher
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function notImplemented() {
+  throw new Error(&#x27;Method not implemented&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype._getDescriptorById" id="apidoc.element.mock-fs.binding.prototype._getDescriptorById">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_getDescriptorById
+        <span class="apidocSignatureSpan">(fd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getDescriptorById = function (fd) {
+  if (!this._openFiles.hasOwnProperty(fd)) {
+    throw new FSError(&#x27;EBADF&#x27;);
+  }
+  return this._openFiles[fd];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {number} fd File descriptor.
+ * @param {function(Error, Stats)|Float64Array} callback Callback (optional). In Node 7.7.0+ this will be a Float64Array
+ * that should be filled with stat values.
+ * @return {Stats|undefined} Stats or undefined (if sync).
+ */
+Binding.prototype.fstat = function(fd, callback) {
+  return maybeCallback(callback, this, function() {
+var descriptor = this.<span class="apidocCodeKeywordSpan">_getDescriptorById</span>(fd);
+var item = descriptor.getItem();
+var stats = item.getStats();
+
+// In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+// which should be filled with stat values.
+// In prior versions of Node, binding.stat simply returns a Stats instance.
+if (callback instanceof Float64Array) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype._trackDescriptor" id="apidoc.element.mock-fs.binding.prototype._trackDescriptor">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_trackDescriptor
+        <span class="apidocSignatureSpan">(descriptor)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_trackDescriptor = function (descriptor) {
+  var fd = ++this._counter;
+  this._openFiles[fd] = descriptor;
+  return fd;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   if (descriptor.isTruncate()) {
+     item.setContent(&#x27;&#x27;);
+   }
+   if (descriptor.isTruncate() || descriptor.isAppend()) {
+     descriptor.setPosition(item.getContent().length);
+   }
+   descriptor.setItem(item);
+   return this.<span class="apidocCodeKeywordSpan">_trackDescriptor</span>(descriptor);
+ });
+};
+
+
+/**
+* Read from a file descriptor.
+* @param {string} fd File descriptor.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype._untrackDescriptorById" id="apidoc.element.mock-fs.binding.prototype._untrackDescriptorById">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>_untrackDescriptorById
+        <span class="apidocSignatureSpan">(fd)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_untrackDescriptorById = function (fd) {
+  if (!this._openFiles.hasOwnProperty(fd)) {
+    throw new FSError(&#x27;EBADF&#x27;);
+  }
+  delete this._openFiles[fd];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Close a file descriptor.
+* @param {number} fd File descriptor.
+* @param {function(Error)} callback Callback (optional).
+*/
+Binding.prototype.close = function(fd, callback) {
+ maybeCallback(callback, this, function() {
+   this.<span class="apidocCodeKeywordSpan">_untrackDescriptorById</span>(fd);
+ });
+};
+
+
+/**
+* Open and possibly create a file.
+* @param {string} pathname File path.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.access" id="apidoc.element.mock-fs.binding.prototype.access">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>access
+        <span class="apidocSignatureSpan">(filepath, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">access = function (filepath, mode, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(filepath);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, filepath);
+    }
+    if (mode &#x26;&#x26; process.getuid &#x26;&#x26; process.getgid) {
+      var itemMode = item.getMode();
+      if (item.getUid() === process.getuid()) {
+        if ((itemMode &#x26; (mode * 64)) !== mode * 64) {
+          throw new FSError(&#x27;EACCES&#x27;, filepath);
+        }
+      } else if (item.getGid() === process.getgid()) {
+        if ((itemMode &#x26; (mode * 8)) !== mode * 8) {
+          throw new FSError(&#x27;EACCES&#x27;, filepath);
+        }
+      } else {
+        if ((itemMode &#x26; mode) !== mode) {
+          throw new FSError(&#x27;EACCES&#x27;, filepath);
+        }
+      }
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (item) {
+      throw new FSError(&#x27;EEXIST&#x27;, pathname);
+    }
+    var parent = this._system.getItem(path.dirname(pathname));
+    if (!parent) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    this.<span class="apidocCodeKeywordSpan">access</span>(path.dirname(pathname), parseInt(&#x27;0002&#x27;, 8));
+    var dir = new Directory();
+    if (mode) {
+      dir.setMode(mode);
+    }
+    parent.addItem(path.basename(pathname), dir);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.chmod" id="apidoc.element.mock-fs.binding.prototype.chmod">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>chmod
+        <span class="apidocSignatureSpan">(pathname, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">chmod = function (pathname, mode, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    item.setMode(mode);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.chown" id="apidoc.element.mock-fs.binding.prototype.chown">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>chown
+        <span class="apidocSignatureSpan">(pathname, uid, gid, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">chown = function (pathname, uid, gid, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    item.setUid(uid);
+    item.setGid(gid);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.close" id="apidoc.element.mock-fs.binding.prototype.close">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>close
+        <span class="apidocSignatureSpan">(fd, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (fd, callback) {
+  maybeCallback(callback, this, function() {
+    this._untrackDescriptorById(fd);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.fchmod" id="apidoc.element.mock-fs.binding.prototype.fchmod">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fchmod
+        <span class="apidocSignatureSpan">(fd, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fchmod = function (fd, mode, callback) {
+  maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    var item = descriptor.getItem();
+    item.setMode(mode);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.fchown" id="apidoc.element.mock-fs.binding.prototype.fchown">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fchown
+        <span class="apidocSignatureSpan">(fd, uid, gid, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fchown = function (fd, uid, gid, callback) {
+  maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    var item = descriptor.getItem();
+    item.setUid(uid);
+    item.setGid(gid);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.fdatasync" id="apidoc.element.mock-fs.binding.prototype.fdatasync">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fdatasync
+        <span class="apidocSignatureSpan">(fd, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fdatasync = function (fd, callback) {
+  maybeCallback(callback, this, function() {
+    this._getDescriptorById(fd);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.fstat" id="apidoc.element.mock-fs.binding.prototype.fstat">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fstat
+        <span class="apidocSignatureSpan">(fd, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fstat = function (fd, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    var item = descriptor.getItem();
+    var stats = item.getStats();
+
+    // In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+    // which should be filled with stat values.
+    // In prior versions of Node, binding.stat simply returns a Stats instance.
+    if (callback instanceof Float64Array) {
+      fillStatsArray(stats, callback);
+    } else {
+      return new Stats(stats);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.fsync" id="apidoc.element.mock-fs.binding.prototype.fsync">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>fsync
+        <span class="apidocSignatureSpan">(fd, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsync = function (fd, callback) {
+  maybeCallback(callback, this, function() {
+    this._getDescriptorById(fd);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.ftruncate" id="apidoc.element.mock-fs.binding.prototype.ftruncate">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>ftruncate
+        <span class="apidocSignatureSpan">(fd, len, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ftruncate = function (fd, len, callback) {
+  maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isWrite()) {
+      throw new FSError(&#x27;EINVAL&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      throw new FSError(&#x27;EINVAL&#x27;);
+    }
+    var content = file.getContent();
+    var newContent = new Buffer(len);
+    content.copy(newContent);
+    file.setContent(newContent);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.futimes" id="apidoc.element.mock-fs.binding.prototype.futimes">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>futimes
+        <span class="apidocSignatureSpan">(fd, atime, mtime, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">futimes = function (fd, atime, mtime, callback) {
+  maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    var item = descriptor.getItem();
+    item.setATime(new Date(atime * 1000));
+    item.setMTime(new Date(mtime * 1000));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.getSystem" id="apidoc.element.mock-fs.binding.prototype.getSystem">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>getSystem
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getSystem = function () {
+  return this._system;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.link" id="apidoc.element.mock-fs.binding.prototype.link">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>link
+        <span class="apidocSignatureSpan">(srcPath, destPath, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">link = function (srcPath, destPath, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(srcPath);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, srcPath);
+    }
+    if (item instanceof Directory) {
+      throw new FSError(&#x27;EPERM&#x27;, srcPath);
+    }
+    if (this._system.getItem(destPath)) {
+      throw new FSError(&#x27;EEXIST&#x27;, destPath);
+    }
+    var parent = this._system.getItem(path.dirname(destPath));
+    if (!parent) {
+      throw new FSError(&#x27;ENOENT&#x27;, destPath);
+    }
+    if (!(parent instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, destPath);
+    }
+    parent.addItem(path.basename(destPath), item);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.lstat" id="apidoc.element.mock-fs.binding.prototype.lstat">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>lstat
+        <span class="apidocSignatureSpan">(filepath, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lstat = function (filepath, callback) {
+  return maybeCallback(callback, this, function() {
+    var item = this._system.getItem(filepath);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, filepath);
+    }
+    var stats = item.getStats();
+
+    // In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+    // which should be filled with stat values.
+    // In prior versions of Node, binding.stat simply returns a Stats instance.
+    if (callback instanceof Float64Array) {
+      fillStatsArray(stats, callback);
+    } else {
+      return new Stats(item.getStats());
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.mkdir" id="apidoc.element.mock-fs.binding.prototype.mkdir">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>mkdir
+        <span class="apidocSignatureSpan">(pathname, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mkdir = function (pathname, mode, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (item) {
+      throw new FSError(&#x27;EEXIST&#x27;, pathname);
+    }
+    var parent = this._system.getItem(path.dirname(pathname));
+    if (!parent) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    this.access(path.dirname(pathname), parseInt(&#x27;0002&#x27;, 8));
+    var dir = new Directory();
+    if (mode) {
+      dir.setMode(mode);
+    }
+    parent.addItem(path.basename(pathname), dir);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.open" id="apidoc.element.mock-fs.binding.prototype.open">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>open
+        <span class="apidocSignatureSpan">(pathname, flags, mode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (pathname, flags, mode, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = new FileDescriptor(flags);
+    var item = this._system.getItem(pathname);
+    while (item instanceof SymbolicLink) {
+      item = this._system.getItem(
+          path.resolve(path.dirname(pathname), item.getPath()));
+    }
+    if (descriptor.isExclusive() &#x26;&#x26; item) {
+      throw new FSError(&#x27;EEXIST&#x27;, pathname);
+    }
+    if (descriptor.isCreate() &#x26;&#x26; !item) {
+      var parent = this._system.getItem(path.dirname(pathname));
+      if (!parent) {
+        throw new FSError(&#x27;ENOENT&#x27;, pathname);
+      }
+      if (!(parent instanceof Directory)) {
+        throw new FSError(&#x27;ENOTDIR&#x27;, pathname);
+      }
+      item = new File();
+      if (mode) {
+        item.setMode(mode);
+      }
+      parent.addItem(path.basename(pathname), item);
+    }
+    if (descriptor.isRead()) {
+      if (!item) {
+        throw new FSError(&#x27;ENOENT&#x27;, pathname);
+      }
+      if (!item.canRead()) {
+        throw new FSError(&#x27;EACCES&#x27;, pathname);
+      }
+    }
+    if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+      throw new FSError(&#x27;EACCES&#x27;, pathname);
+    }
+    if (descriptor.isTruncate()) {
+      item.setContent(&#x27;&#x27;);
+    }
+    if (descriptor.isTruncate() || descriptor.isAppend()) {
+      descriptor.setPosition(item.getContent().length);
+    }
+    descriptor.setItem(item);
+    return this._trackDescriptor(descriptor);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.read" id="apidoc.element.mock-fs.binding.prototype.read">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>read
+        <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (fd, buffer, offset, length, position, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isRead()) {
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      // deleted or not a regular file
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    if (typeof position !== &#x27;number&#x27; || position &#x3c; 0) {
+      position = descriptor.getPosition();
+    }
+    var content = file.getContent();
+    var start = Math.min(position, content.length);
+    var end = Math.min(position + length, content.length);
+    var read = (start &#x3c; end) ? content.copy(buffer, offset, start, end) : 0;
+    descriptor.setPosition(position + read);
+    return read;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.readdir" id="apidoc.element.mock-fs.binding.prototype.readdir">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>readdir
+        <span class="apidocSignatureSpan">(dirpath, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readdir = function (dirpath, encoding, callback) {
+  if (encoding &#x26;&#x26; typeof encoding !== &#x27;string&#x27;) {
+    callback = encoding;
+    encoding = &#x27;utf-8&#x27;;
+  }
+  return maybeCallback(callback, this, function() {
+    var dpath = dirpath;
+    var dir = this._system.getItem(dirpath);
+    while (dir instanceof SymbolicLink) {
+      dpath = path.resolve(path.dirname(dpath), dir.getPath());
+      dir = this._system.getItem(dpath);
+    }
+    if (!dir) {
+      throw new FSError(&#x27;ENOENT&#x27;, dirpath);
+    }
+    if (!(dir instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, dirpath);
+    }
+    var list = dir.list();
+    if (encoding === &#x27;buffer&#x27;) {
+      list = list.map(function(item) {
+        return new Buffer(item);
+      });
+    }
+    return list;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.readlink" id="apidoc.element.mock-fs.binding.prototype.readlink">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>readlink
+        <span class="apidocSignatureSpan">(pathname, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readlink = function (pathname, encoding, callback) {
+  if (encoding &#x26;&#x26; typeof encoding !== &#x27;string&#x27;) {
+    callback = encoding;
+    encoding = &#x27;utf-8&#x27;;
+  }
+  return maybeCallback(callback, this, function() {
+    var link = this._system.getItem(pathname);
+    if (!(link instanceof SymbolicLink)) {
+      throw new FSError(&#x27;EINVAL&#x27;, pathname);
+    }
+    var linkPath = link.getPath();
+    if (encoding === &#x27;buffer&#x27;) {
+      linkPath = new Buffer(linkPath);
+    }
+    return linkPath;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.realpath" id="apidoc.element.mock-fs.binding.prototype.realpath">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>realpath
+        <span class="apidocSignatureSpan">(filepath, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">realpath = function (filepath, encoding, callback) {
+  return maybeCallback(callback, this, function() {
+    var realPath;
+    if (Buffer.isBuffer(filepath)) {
+      filepath = filepath.toString();
+    }
+    var resolved = path.resolve(filepath);
+    var parts = getPathParts(resolved);
+    var item = this._system.getRoot();
+    var itemPath = &#x27;/&#x27;;
+    var name, i, ii;
+    for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+      name = parts[i];
+      while (item instanceof SymbolicLink) {
+        itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+        item = this._system.getItem(itemPath);
+      }
+      if (!item) {
+        throw new FSError(&#x27;ENOENT&#x27;, filepath);
+      }
+      if (item instanceof Directory) {
+        itemPath = path.resolve(itemPath, name);
+        item = item.getItem(name);
+      } else {
+        throw new FSError(&#x27;ENOTDIR&#x27;, filepath);
+      }
+    }
+    if (item) {
+      while (item instanceof SymbolicLink) {
+        itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+        item = this._system.getItem(itemPath);
+      }
+      realPath = itemPath;
+    } else {
+      throw new FSError(&#x27;ENOENT&#x27;, filepath);
+    }
+
+    if (encoding === &#x27;buffer&#x27;) {
+      realPath = new Buffer(realPath);
+    }
+    return realPath;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.rename" id="apidoc.element.mock-fs.binding.prototype.rename">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>rename
+        <span class="apidocSignatureSpan">(oldPath, newPath, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rename = function (oldPath, newPath, callback) {
+  return maybeCallback(callback, this, function() {
+    var oldItem = this._system.getItem(oldPath);
+    if (!oldItem) {
+      throw new FSError(&#x27;ENOENT&#x27;, oldPath);
+    }
+    var oldParent = this._system.getItem(path.dirname(oldPath));
+    var oldName = path.basename(oldPath);
+    var newItem = this._system.getItem(newPath);
+    var newParent = this._system.getItem(path.dirname(newPath));
+    var newName = path.basename(newPath);
+    if (newItem) {
+      // make sure they are the same type
+      if (oldItem instanceof File) {
+        if (newItem instanceof Directory) {
+          throw new FSError(&#x27;EISDIR&#x27;, newPath);
+        }
+      } else if (oldItem instanceof Directory) {
+        if (!(newItem instanceof Directory)) {
+          throw new FSError(&#x27;ENOTDIR&#x27;, newPath);
+        }
+        if (newItem.list().length &#x3e; 0) {
+          throw new FSError(&#x27;ENOTEMPTY&#x27;, newPath);
+        }
+      }
+      newParent.removeItem(newName);
+    } else {
+      if (!newParent) {
+        throw new FSError(&#x27;ENOENT&#x27;, newPath);
+      }
+      if (!(newParent instanceof Directory)) {
+        throw new FSError(&#x27;ENOTDIR&#x27;, newPath);
+      }
+    }
+    oldParent.removeItem(oldName);
+    newParent.addItem(newName, oldItem);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.rmdir" id="apidoc.element.mock-fs.binding.prototype.rmdir">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>rmdir
+        <span class="apidocSignatureSpan">(pathname, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rmdir = function (pathname, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    if (!(item instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, pathname);
+    }
+    if (item.list().length &#x3e; 0) {
+      throw new FSError(&#x27;ENOTEMPTY&#x27;, pathname);
+    }
+    this.access(path.dirname(pathname), parseInt(&#x27;0002&#x27;, 8));
+    var parent = this._system.getItem(path.dirname(pathname));
+    parent.removeItem(path.basename(pathname));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.setSystem" id="apidoc.element.mock-fs.binding.prototype.setSystem">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>setSystem
+        <span class="apidocSignatureSpan">(system)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setSystem = function (system) {
+  this._system = system;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.stat" id="apidoc.element.mock-fs.binding.prototype.stat">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>stat
+        <span class="apidocSignatureSpan">(filepath, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stat = function (filepath, callback) {
+  return maybeCallback(callback, this, function() {
+    var item = this._system.getItem(filepath);
+    if (item instanceof SymbolicLink) {
+      item = this._system.getItem(
+          path.resolve(path.dirname(filepath), item.getPath()));
+    }
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, filepath);
+    }
+    var stats = item.getStats();
+
+    // In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+    // which should be filled with stat values.
+    // In prior versions of Node, binding.stat simply returns a Stats instance.
+    if (callback instanceof Float64Array) {
+      fillStatsArray(stats, callback);
+    } else {
+      return new Stats(stats);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.symlink" id="apidoc.element.mock-fs.binding.prototype.symlink">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>symlink
+        <span class="apidocSignatureSpan">(srcPath, destPath, type, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">symlink = function (srcPath, destPath, type, callback) {
+  maybeCallback(callback, this, function() {
+    if (this._system.getItem(destPath)) {
+      throw new FSError(&#x27;EEXIST&#x27;, destPath);
+    }
+    var parent = this._system.getItem(path.dirname(destPath));
+    if (!parent) {
+      throw new FSError(&#x27;ENOENT&#x27;, destPath);
+    }
+    if (!(parent instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, destPath);
+    }
+    var link = new SymbolicLink();
+    link.setPath(srcPath);
+    parent.addItem(path.basename(destPath), link);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+Note that if you want to create a directory with the default properties, you can provide an `Object` directly instead of calling
+ `mock.directory()`.
+
+### Creating symlinks
+
+Using a `string` or a `Buffer` is a shortcut for creating files with default properties.  Using an `Object` is a shortcut for creating
+ a directory with default properties.  There is no shortcut for creating symlinks.  To create a symlink, you need to call the [`
+mock.<span class="apidocCodeKeywordSpan">symlink</span>()`](#mocksymlinkproperties) function described below.
+
+### &#x3c;a id=&#x27;mocksymlinkproperties&#x27;&#x3e;`mock.symlink(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new symlinks.  Supported properties:
+
+* **path** - `string` Path to the source (required).
+* **mode** - `number` Symlink mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.truncate" id="apidoc.element.mock-fs.binding.prototype.truncate">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>truncate
+        <span class="apidocSignatureSpan">(fd, len, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">truncate = function (fd, len, callback) {
+  maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isWrite()) {
+      throw new FSError(&#x27;EINVAL&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      throw new FSError(&#x27;EINVAL&#x27;);
+    }
+    var content = file.getContent();
+    var newContent = new Buffer(len);
+    content.copy(newContent);
+    file.setContent(newContent);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.unlink" id="apidoc.element.mock-fs.binding.prototype.unlink">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>unlink
+        <span class="apidocSignatureSpan">(pathname, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unlink = function (pathname, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    if (item instanceof Directory) {
+      throw new FSError(&#x27;EPERM&#x27;, pathname);
+    }
+    var parent = this._system.getItem(path.dirname(pathname));
+    parent.removeItem(path.basename(pathname));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.utimes" id="apidoc.element.mock-fs.binding.prototype.utimes">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>utimes
+        <span class="apidocSignatureSpan">(pathname, atime, mtime, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">utimes = function (pathname, atime, mtime, callback) {
+  maybeCallback(callback, this, function() {
+    var item = this._system.getItem(pathname);
+    if (!item) {
+      throw new FSError(&#x27;ENOENT&#x27;, pathname);
+    }
+    item.setATime(new Date(atime * 1000));
+    item.setMTime(new Date(mtime * 1000));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.write" id="apidoc.element.mock-fs.binding.prototype.write">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>write
+        <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (fd, buffer, offset, length, position, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isWrite()) {
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      // not a regular file
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    if (typeof position !== &#x27;number&#x27; || position &#x3c; 0) {
+      position = descriptor.getPosition();
+    }
+    var content = file.getContent();
+    var newLength = position + length;
+    if (content.length &#x3c; newLength) {
+      var newContent = new Buffer(newLength);
+      content.copy(newContent);
+      content = newContent;
+    }
+    var sourceEnd = Math.min(offset + length, buffer.length);
+    var written = buffer.copy(content, position, offset, sourceEnd);
+    file.setContent(content);
+    descriptor.setPosition(newLength);
+    return written;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.writeBuffer" id="apidoc.element.mock-fs.binding.prototype.writeBuffer">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeBuffer
+        <span class="apidocSignatureSpan">(fd, buffer, offset, length, position, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeBuffer = function (fd, buffer, offset, length, position, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isWrite()) {
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      // not a regular file
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    if (typeof position !== &#x27;number&#x27; || position &#x3c; 0) {
+      position = descriptor.getPosition();
+    }
+    var content = file.getContent();
+    var newLength = position + length;
+    if (content.length &#x3c; newLength) {
+      var newContent = new Buffer(newLength);
+      content.copy(newContent);
+      content = newContent;
+    }
+    var sourceEnd = Math.min(offset + length, buffer.length);
+    var written = buffer.copy(content, position, offset, sourceEnd);
+    file.setContent(content);
+    descriptor.setPosition(newLength);
+    return written;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   if (callback.oncomplete) {
+     callback = callback.oncomplete.bind(callback);
+   }
+   wrapper = function(err, written, returned) {
+     callback(err, written, returned &#x26;&#x26; string);
+   };
+ }
+ return this.<span class="apidocCodeKeywordSpan">writeBuffer</span>(fd, buffer, 0, string.length, position, wrapper);
+};
+
+
+/**
+* Rename a file.
+* @param {string} oldPath Old pathname.
+* @param {string} newPath New pathname.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.writeBuffers" id="apidoc.element.mock-fs.binding.prototype.writeBuffers">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeBuffers
+        <span class="apidocSignatureSpan">(fd, buffers, position, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeBuffers = function (fd, buffers, position, callback) {
+  return maybeCallback(callback, this, function() {
+    var descriptor = this._getDescriptorById(fd);
+    if (!descriptor.isWrite()) {
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    var file = descriptor.getItem();
+    if (!(file instanceof File)) {
+      // not a regular file
+      throw new FSError(&#x27;EBADF&#x27;);
+    }
+    if (typeof position !== &#x27;number&#x27; || position &#x3c; 0) {
+      position = descriptor.getPosition();
+    }
+    var content = file.getContent();
+    var newContent = Buffer.concat(buffers);
+    var newLength = position + newContent.length;
+    if (content.length &#x3c; newLength) {
+      var tempContent = new Buffer(newLength);
+      content.copy(tempContent);
+      content = tempContent;
+    }
+    var written = newContent.copy(content, position);
+    file.setContent(content);
+    descriptor.setPosition(newLength);
+    return written;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.binding.prototype.writeString" id="apidoc.element.mock-fs.binding.prototype.writeString">
+        function <span class="apidocSignatureSpan">mock-fs.binding.prototype.</span>writeString
+        <span class="apidocSignatureSpan">(fd, string, position, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeString = function (fd, string, position, encoding, callback) {
+  var buffer = new Buffer(string, encoding);
+  var wrapper;
+  if (callback) {
+    if (callback.oncomplete) {
+      callback = callback.oncomplete.bind(callback);
+    }
+    wrapper = function(err, written, returned) {
+      callback(err, written, returned &#x26;&#x26; string);
+    };
+  }
+  return this.writeBuffer(fd, buffer, 0, string.length, position, wrapper);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.descriptor" id="apidoc.module.mock-fs.descriptor">module mock-fs.descriptor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.descriptor" id="apidoc.element.mock-fs.descriptor.descriptor">
+        function <span class="apidocSignatureSpan">mock-fs.</span>descriptor
+        <span class="apidocSignatureSpan">(flags)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileDescriptor(flags) {
+
+<span class="apidocCodeCommentSpan">  /**
+   * Flags.
+   * @type {number}
+   */
+</span>  this._flags = flags;
+
+  /**
+   * File system item.
+   * @type {Item}
+   */
+  this._item = null;
+
+  /**
+   * Current file position.
+   * @type {number}
+   */
+  this._position = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.descriptor.prototype" id="apidoc.module.mock-fs.descriptor.prototype">module mock-fs.descriptor.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.getItem" id="apidoc.element.mock-fs.descriptor.prototype.getItem">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>getItem
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getItem = function () {
+  return this._item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var item = this._system.getRoot();
+var itemPath = &#x27;/&#x27;;
+var name, i, ii;
+for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+  name = parts[i];
+  while (item instanceof SymbolicLink) {
+    itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+    item = this._system.<span class="apidocCodeKeywordSpan">getItem</span>(itemPath);
+  }
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, filepath);
+  }
+  if (item instanceof Directory) {
+    itemPath = path.resolve(itemPath, name);
+    item = item.getItem(name);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.getPosition" id="apidoc.element.mock-fs.descriptor.prototype.getPosition">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>getPosition
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPosition = function () {
+  return this._position;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+var file = descriptor.getItem();
+if (!(file instanceof File)) {
+  // deleted or not a regular file
+  throw new FSError(&#x27;EBADF&#x27;);
+}
+if (typeof position !== &#x27;number&#x27; || position &#x3c; 0) {
+  position = descriptor.<span class="apidocCodeKeywordSpan">getPosition</span>();
+}
+var content = file.getContent();
+var start = Math.min(position, content.length);
+var end = Math.min(position + length, content.length);
+var read = (start &#x3c; end) ? content.copy(buffer, offset, start, end) : 0;
+descriptor.setPosition(position + read);
+return read;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isAppend" id="apidoc.element.mock-fs.descriptor.prototype.isAppend">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isAppend
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isAppend = function () {
+  return ((this._flags &#x26; constants.O_APPEND) === constants.O_APPEND);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+      throw new FSError(&#x27;EACCES&#x27;, pathname);
+    }
+    if (descriptor.isTruncate()) {
+      item.setContent(&#x27;&#x27;);
+    }
+    if (descriptor.isTruncate() || descriptor.<span class="apidocCodeKeywordSpan">isAppend</span>()) {
+      descriptor.setPosition(item.getContent().length);
+    }
+    descriptor.setItem(item);
+    return this._trackDescriptor(descriptor);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isCreate" id="apidoc.element.mock-fs.descriptor.prototype.isCreate">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isCreate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isCreate = function () {
+  return ((this._flags &#x26; constants.O_CREAT) === constants.O_CREAT);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+while (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(pathname), item.getPath()));
+}
+if (descriptor.isExclusive() &#x26;&#x26; item) {
+  throw new FSError(&#x27;EEXIST&#x27;, pathname);
+}
+if (descriptor.<span class="apidocCodeKeywordSpan">isCreate</span>() &#x26;&#x26; !item) {
+  var parent = this._system.getItem(path.dirname(pathname));
+  if (!parent) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!(parent instanceof Directory)) {
+    throw new FSError(&#x27;ENOTDIR&#x27;, pathname);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isExclusive" id="apidoc.element.mock-fs.descriptor.prototype.isExclusive">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isExclusive
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isExclusive = function () {
+  return ((this._flags &#x26; constants.O_EXCL) === constants.O_EXCL);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return maybeCallback(callback, this, function() {
+var descriptor = new FileDescriptor(flags);
+var item = this._system.getItem(pathname);
+while (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(pathname), item.getPath()));
+}
+if (descriptor.<span class="apidocCodeKeywordSpan">isExclusive</span>() &#x26;&#x26; item) {
+  throw new FSError(&#x27;EEXIST&#x27;, pathname);
+}
+if (descriptor.isCreate() &#x26;&#x26; !item) {
+  var parent = this._system.getItem(path.dirname(pathname));
+  if (!parent) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isRead" id="apidoc.element.mock-fs.descriptor.prototype.isRead">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isRead
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isRead = function () {
+  // special treatment because O_RDONLY is 0
+  return (this._flags === constants.O_RDONLY) ||
+      (this._flags === (constants.O_RDONLY | constants.O_SYNC)) ||
+      ((this._flags &#x26; constants.O_RDWR) === constants.O_RDWR);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  item = new File();
+  if (mode) {
+    item.setMode(mode);
+  }
+  parent.addItem(path.basename(pathname), item);
+}
+if (descriptor.<span class="apidocCodeKeywordSpan">isRead</span>()) {
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!item.canRead()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isTruncate" id="apidoc.element.mock-fs.descriptor.prototype.isTruncate">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isTruncate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isTruncate = function () {
+  return (this._flags &#x26; constants.O_TRUNC) === constants.O_TRUNC;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!item.canRead()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+}
+if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+  throw new FSError(&#x27;EACCES&#x27;, pathname);
+}
+if (descriptor.<span class="apidocCodeKeywordSpan">isTruncate</span>()) {
+  item.setContent(&#x27;&#x27;);
+}
+if (descriptor.isTruncate() || descriptor.isAppend()) {
+  descriptor.setPosition(item.getContent().length);
+}
+descriptor.setItem(item);
+return this._trackDescriptor(descriptor);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.isWrite" id="apidoc.element.mock-fs.descriptor.prototype.isWrite">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>isWrite
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isWrite = function () {
+  return ((this._flags &#x26; constants.O_WRONLY) === constants.O_WRONLY) ||
+      ((this._flags &#x26; constants.O_RDWR) === constants.O_RDWR);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!item.canRead()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+}
+if (descriptor.<span class="apidocCodeKeywordSpan">isWrite</span>() &#x26;&#x26; !item.canWrite()) {
+  throw new FSError(&#x27;EACCES&#x27;, pathname);
+}
+if (descriptor.isTruncate()) {
+  item.setContent(&#x27;&#x27;);
+}
+if (descriptor.isTruncate() || descriptor.isAppend()) {
+  descriptor.setPosition(item.getContent().length);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.setItem" id="apidoc.element.mock-fs.descriptor.prototype.setItem">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>setItem
+        <span class="apidocSignatureSpan">(item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setItem = function (item) {
+  this._item = item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   }
+   if (descriptor.isTruncate()) {
+     item.setContent(&#x27;&#x27;);
+   }
+   if (descriptor.isTruncate() || descriptor.isAppend()) {
+     descriptor.setPosition(item.getContent().length);
+   }
+   descriptor.<span class="apidocCodeKeywordSpan">setItem</span>(item);
+   return this._trackDescriptor(descriptor);
+ });
+};
+
+
+/**
+* Read from a file descriptor.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.descriptor.prototype.setPosition" id="apidoc.element.mock-fs.descriptor.prototype.setPosition">
+        function <span class="apidocSignatureSpan">mock-fs.descriptor.prototype.</span>setPosition
+        <span class="apidocSignatureSpan">(position)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPosition = function (position) {
+  this._position = position;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+      throw new FSError(&#x27;EACCES&#x27;, pathname);
+    }
+    if (descriptor.isTruncate()) {
+      item.setContent(&#x27;&#x27;);
+    }
+    if (descriptor.isTruncate() || descriptor.isAppend()) {
+      descriptor.<span class="apidocCodeKeywordSpan">setPosition</span>(item.getContent().length);
+    }
+    descriptor.setItem(item);
+    return this._trackDescriptor(descriptor);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.directory" id="apidoc.module.mock-fs.directory">module mock-fs.directory</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.directory" id="apidoc.element.mock-fs.directory.directory">
+        function <span class="apidocSignatureSpan">mock-fs.</span>directory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Directory() {
+  Item.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Items in this directory.
+   * @type {Object.&#x3c;string, Item&#x3e;}
+   */
+</span>  this._items = {};
+
+  /**
+   * Permissions.
+   */
+  this._mode = 511; // 0777
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       file2: new Buffer([1, 2, 3, 4])
+     }
+   }
+ }
+});
+```
+
+To create a directory with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">directory</span>()`](mockdirectoryproperties) function described below.
+
+### &#x3c;a id=&#x27;mockdirectoryproperties&#x27;&#x3e;`mock.directory(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new directories.  Supported properties:
+
+* **mode** - `number` Directory mode (permission and sticky bits).  Defaults to `0777`.
+* **uid** - `number` The user id.  Defaults to `process.getuid()`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.super_" id="apidoc.element.mock-fs.directory.super_">
+        function <span class="apidocSignatureSpan">mock-fs.directory.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Item() {
+
+  var now = Date.now();
+
+<span class="apidocCodeCommentSpan">  /**
+   * Access time.
+   * @type {Date}
+   */
+</span>  this._atime = new Date(now);
+
+  /**
+   * Change time.
+   * @type {Date}
+   */
+  this._ctime = new Date(now);
+
+  /**
+   * Birth time.
+   * @type {Date}
+   */
+  this._birthtime = new Date(now);
+
+  /**
+   * Modification time.
+   * @type {Date}
+   */
+  this._mtime = new Date(now);
+
+  /**
+   * Permissions.
+   */
+  this._mode = 438; // 0666
+
+  /**
+   * User id.
+   * @type {number}
+   */
+  this._uid = getUid();
+
+  /**
+   * Group id.
+   * @type {number}
+   */
+  this._gid = getGid();
+
+  /**
+   * Item number.
+   * @type {number}
+   */
+  this._id = ++counter;
+
+  /**
+   * Number of links to this item.
+   */
+  this.links = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.directory.prototype" id="apidoc.module.mock-fs.directory.prototype">module mock-fs.directory.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.prototype.addItem" id="apidoc.element.mock-fs.directory.prototype.addItem">
+        function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>addItem
+        <span class="apidocSignatureSpan">(name, item)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addItem = function (name, item) {
+  if (this._items.hasOwnProperty(name)) {
+    throw new Error(&#x27;Item with the same name already exists: &#x27; + name);
+  }
+  this._items[name] = item;
+  ++item.links;
+  if (item instanceof Directory) {
+    // for &#x27;.&#x27; entry
+    ++item.links;
+    // for subdirectory
+    ++this.links;
+  }
+  this.setMTime(new Date());
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!(parent instanceof Directory)) {
+    throw new FSError(&#x27;ENOTDIR&#x27;, pathname);
+  }
+  item = new File();
+  if (mode) {
+    item.setMode(mode);
+  }
+  parent.<span class="apidocCodeKeywordSpan">addItem</span>(path.basename(pathname), item);
+}
+if (descriptor.isRead()) {
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!item.canRead()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.prototype.getItem" id="apidoc.element.mock-fs.directory.prototype.getItem">
+        function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>getItem
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getItem = function (name) {
+  var item = null;
+  if (this._items.hasOwnProperty(name)) {
+    item = this._items[name];
+  }
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var item = this._system.getRoot();
+var itemPath = &#x27;/&#x27;;
+var name, i, ii;
+for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+  name = parts[i];
+  while (item instanceof SymbolicLink) {
+    itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+    item = this._system.<span class="apidocCodeKeywordSpan">getItem</span>(itemPath);
+  }
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, filepath);
+  }
+  if (item instanceof Directory) {
+    itemPath = path.resolve(itemPath, name);
+    item = item.getItem(name);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.prototype.getStats" id="apidoc.element.mock-fs.directory.prototype.getStats">
+        function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>getStats
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getStats = function () {
+  var stats = Item.prototype.getStats.call(this);
+  stats.mode = this.getMode() | constants.S_IFDIR;
+  stats.size = 1;
+  stats.blocks = 1;
+  return stats;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(filepath), item.getPath()));
+}
+if (!item) {
+  throw new FSError(&#x27;ENOENT&#x27;, filepath);
+}
+var stats = item.<span class="apidocCodeKeywordSpan">getStats</span>();
+
+// In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+// which should be filled with stat values.
+// In prior versions of Node, binding.stat simply returns a Stats instance.
+if (callback instanceof Float64Array) {
+  fillStatsArray(stats, callback);
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.prototype.list" id="apidoc.element.mock-fs.directory.prototype.list">
+        function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>list
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function () {
+  return Object.keys(this._items).sort();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (newItem instanceof Directory) {
+      throw new FSError(&#x27;EISDIR&#x27;, newPath);
+    }
+  } else if (oldItem instanceof Directory) {
+    if (!(newItem instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, newPath);
+    }
+    if (newItem.<span class="apidocCodeKeywordSpan">list</span>().length &#x3e; 0) {
+      throw new FSError(&#x27;ENOTEMPTY&#x27;, newPath);
+    }
+  }
+  newParent.removeItem(newName);
+} else {
+  if (!newParent) {
+    throw new FSError(&#x27;ENOENT&#x27;, newPath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.directory.prototype.removeItem" id="apidoc.element.mock-fs.directory.prototype.removeItem">
+        function <span class="apidocSignatureSpan">mock-fs.directory.prototype.</span>removeItem
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeItem = function (name) {
+  if (!this._items.hasOwnProperty(name)) {
+    throw new Error(&#x27;Item does not exist in directory: &#x27; + name);
+  }
+  var item = this._items[name];
+  delete this._items[name];
+  --item.links;
+  if (item instanceof Directory) {
+    // for &#x27;.&#x27; entry
+    --item.links;
+    // for subdirectory
+    --this.links;
+  }
+  this.setMTime(new Date());
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (!(newItem instanceof Directory)) {
+      throw new FSError(&#x27;ENOTDIR&#x27;, newPath);
+    }
+    if (newItem.list().length &#x3e; 0) {
+      throw new FSError(&#x27;ENOTEMPTY&#x27;, newPath);
+    }
+  }
+  newParent.<span class="apidocCodeKeywordSpan">removeItem</span>(newName);
+} else {
+  if (!newParent) {
+    throw new FSError(&#x27;ENOENT&#x27;, newPath);
+  }
+  if (!(newParent instanceof Directory)) {
+    throw new FSError(&#x27;ENOTDIR&#x27;, newPath);
+  }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.file" id="apidoc.module.mock-fs.file">module mock-fs.file</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file.file" id="apidoc.element.mock-fs.file.file">
+        function <span class="apidocSignatureSpan">mock-fs.</span>file
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File() {
+  Item.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * File content.
+   * @type {Buffer}
+   */
+</span>  this._content = EMPTY;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+When `config` property values are a `string` or `Buffer`, a file is created with the provided content.  For example, the following
+ configuration creates a single file with string content (in addition to the two default directories).
+```js
+mock({
+ &#x27;path/to/file.txt&#x27;: &#x27;file content here&#x27;
+});
+```
+
+To create a file with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">file</span>()`](#mockfileproperties) function described below.
+
+### &#x3c;a id=&#x27;mockfileproperties&#x27;&#x3e;`mock.file(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new files.  Supported properties:
+
+* **content** - `string|Buffer` File contents.
+* **mode** - `number` File mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file.super_" id="apidoc.element.mock-fs.file.super_">
+        function <span class="apidocSignatureSpan">mock-fs.file.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Item() {
+
+  var now = Date.now();
+
+<span class="apidocCodeCommentSpan">  /**
+   * Access time.
+   * @type {Date}
+   */
+</span>  this._atime = new Date(now);
+
+  /**
+   * Change time.
+   * @type {Date}
+   */
+  this._ctime = new Date(now);
+
+  /**
+   * Birth time.
+   * @type {Date}
+   */
+  this._birthtime = new Date(now);
+
+  /**
+   * Modification time.
+   * @type {Date}
+   */
+  this._mtime = new Date(now);
+
+  /**
+   * Permissions.
+   */
+  this._mode = 438; // 0666
+
+  /**
+   * User id.
+   * @type {number}
+   */
+  this._uid = getUid();
+
+  /**
+   * Group id.
+   * @type {number}
+   */
+  this._gid = getGid();
+
+  /**
+   * Item number.
+   * @type {number}
+   */
+  this._id = ++counter;
+
+  /**
+   * Number of links to this item.
+   */
+  this.links = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.file.prototype" id="apidoc.module.mock-fs.file.prototype">module mock-fs.file.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file.prototype.getContent" id="apidoc.element.mock-fs.file.prototype.getContent">
+        function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>getContent
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getContent = function () {
+  this.setATime(new Date());
+  return this._content;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+      throw new FSError(&#x27;EACCES&#x27;, pathname);
+    }
+    if (descriptor.isTruncate()) {
+      item.setContent(&#x27;&#x27;);
+    }
+    if (descriptor.isTruncate() || descriptor.isAppend()) {
+      descriptor.setPosition(item.<span class="apidocCodeKeywordSpan">getContent</span>().length);
+    }
+    descriptor.setItem(item);
+    return this._trackDescriptor(descriptor);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file.prototype.getStats" id="apidoc.element.mock-fs.file.prototype.getStats">
+        function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>getStats
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getStats = function () {
+  var size = this._content.length;
+  var stats = Item.prototype.getStats.call(this);
+  stats.mode = this.getMode() | constants.S_IFREG;
+  stats.size = size;
+  stats.blocks = Math.ceil(size / 512);
+  return stats;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(filepath), item.getPath()));
+}
+if (!item) {
+  throw new FSError(&#x27;ENOENT&#x27;, filepath);
+}
+var stats = item.<span class="apidocCodeKeywordSpan">getStats</span>();
+
+// In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+// which should be filled with stat values.
+// In prior versions of Node, binding.stat simply returns a Stats instance.
+if (callback instanceof Float64Array) {
+  fillStatsArray(stats, callback);
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.file.prototype.setContent" id="apidoc.element.mock-fs.file.prototype.setContent">
+        function <span class="apidocSignatureSpan">mock-fs.file.prototype.</span>setContent
+        <span class="apidocSignatureSpan">(content)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setContent = function (content) {
+  if (typeof content === &#x27;string&#x27;) {
+    content = new Buffer(content);
+  } else if (!Buffer.isBuffer(content)) {
+    throw new Error(&#x27;File content must be a string or buffer&#x27;);
+  }
+  this._content = content;
+  var now = Date.now();
+  this.setCTime(new Date(now));
+  this.setMTime(new Date(now));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      throw new FSError(&#x27;EACCES&#x27;, pathname);
+    }
+  }
+  if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+  if (descriptor.isTruncate()) {
+    item.<span class="apidocCodeKeywordSpan">setContent</span>(&#x27;&#x27;);
+  }
+  if (descriptor.isTruncate() || descriptor.isAppend()) {
+    descriptor.setPosition(item.getContent().length);
+  }
+  descriptor.setItem(item);
+  return this._trackDescriptor(descriptor);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.filesystem" id="apidoc.module.mock-fs.filesystem">module mock-fs.filesystem</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.filesystem" id="apidoc.element.mock-fs.filesystem.filesystem">
+        function <span class="apidocSignatureSpan">mock-fs.</span>filesystem
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FileSystem(options) {
+  options = options || {};
+
+  var createCwd = &#x27;createCwd&#x27; in options ? options.createCwd : true;
+  var createTmp = &#x27;createTmp&#x27; in options ? options.createTmp : true;
+
+  var root = new Directory();
+
+  // populate with default directories
+  var defaults = [];
+  if (createCwd) {
+    defaults.push(process.cwd());
+  }
+
+  if (createTmp) {
+    defaults.push(os.tmpdir &#x26;&#x26; os.tmpdir() || os.tmpDir());
+  }
+
+  defaults.forEach(function(dir) {
+    var parts = getPathParts(dir);
+    var directory = root;
+    var i, ii, name, candidate;
+    for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+      name = parts[i];
+      candidate = directory.getItem(name);
+      if (!candidate) {
+        directory = directory.addItem(name, new Directory());
+      } else if (candidate instanceof Directory) {
+        directory = candidate;
+      } else {
+        throw new Error(&#x27;Failed to create directory: &#x27; + dir);
+      }
+    }
+  });
+
+<span class="apidocCodeCommentSpan">  /**
+   * Root directory.
+   * @type {Directory}
+   */
+</span>  this._root = root;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.create" id="apidoc.element.mock-fs.filesystem.create">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>create
+        <span class="apidocSignatureSpan">(paths, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (paths, options) {
+  var system = new FileSystem(options);
+
+  for (var filepath in paths) {
+    var parts = getPathParts(filepath);
+    var directory = system._root;
+    var i, ii, name, candidate;
+    for (i = 0, ii = parts.length - 1; i &#x3c; ii; ++i) {
+      name = parts[i];
+      candidate = directory.getItem(name);
+      if (!candidate) {
+        directory = directory.addItem(name, new Directory());
+      } else if (candidate instanceof Directory) {
+        directory = candidate;
+      } else {
+        throw new Error(&#x27;Failed to create directory: &#x27; + filepath);
+      }
+    }
+    populate(directory, parts[i], paths[filepath]);
+  }
+
+  return system;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.directory" id="apidoc.element.mock-fs.filesystem.directory">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>directory
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">directory = function (config) {
+  config = config || {};
+  return function() {
+    var dir = new Directory();
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      dir.setMode(config.mode);
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      dir.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      dir.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;items&#x27;)) {
+      for (var name in config.items) {
+        populate(dir, name, config.items[name]);
+      }
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      dir.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      dir.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      dir.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      dir.setBirthtime(config.birthtime);
+    }
+    return dir;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       file2: new Buffer([1, 2, 3, 4])
+     }
+   }
+ }
+});
+```
+
+To create a directory with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">directory</span>()`](mockdirectoryproperties) function described below.
+
+### &#x3c;a id=&#x27;mockdirectoryproperties&#x27;&#x3e;`mock.directory(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new directories.  Supported properties:
+
+* **mode** - `number` Directory mode (permission and sticky bits).  Defaults to `0777`.
+* **uid** - `number` The user id.  Defaults to `process.getuid()`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.file" id="apidoc.element.mock-fs.filesystem.file">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>file
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">file = function (config) {
+  config = config || {};
+  return function() {
+    var file = new File();
+    if (config.hasOwnProperty(&#x27;content&#x27;)) {
+      file.setContent(config.content);
+    }
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      file.setMode(config.mode);
+    } else {
+      file.setMode(438); // 0666
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      file.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      file.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      file.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      file.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      file.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      file.setBirthtime(config.birthtime);
+    }
+    return file;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+When `config` property values are a `string` or `Buffer`, a file is created with the provided content.  For example, the following
+ configuration creates a single file with string content (in addition to the two default directories).
+```js
+mock({
+ &#x27;path/to/file.txt&#x27;: &#x27;file content here&#x27;
+});
+```
+
+To create a file with additional properties (owner, permissions, atime, etc.), use the [`mock.<span class="apidocCodeKeywordSpan
+">file</span>()`](#mockfileproperties) function described below.
+
+### &#x3c;a id=&#x27;mockfileproperties&#x27;&#x3e;`mock.file(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new files.  Supported properties:
+
+* **content** - `string|Buffer` File contents.
+* **mode** - `number` File mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.getPathParts" id="apidoc.element.mock-fs.filesystem.getPathParts">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>getPathParts
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getPathParts(filepath) {
+  var parts = path._makeLong(path.resolve(filepath)).split(path.sep);
+  parts.shift();
+  if (isWindows) {
+    // parts currently looks like [&#x27;&#x27;, &#x27;?&#x27;, &#x27;c:&#x27;, ...]
+    parts.shift();
+    var q = parts.shift(); // should be &#x27;?&#x27;
+    var base = &#x27;\\\\&#x27; + q + &#x27;\\&#x27; + parts.shift().toLowerCase();
+    parts.unshift(base);
+  }
+  if (parts[parts.length - 1] === &#x27;&#x27;) {
+    parts.pop();
+  }
+  return parts;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.symlink" id="apidoc.element.mock-fs.filesystem.symlink">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.</span>symlink
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">symlink = function (config) {
+  config = config || {};
+  return function() {
+    var link = new SymbolicLink();
+    if (config.hasOwnProperty(&#x27;mode&#x27;)) {
+      link.setMode(config.mode);
+    } else {
+      link.setMode(438); // 0666
+    }
+    if (config.hasOwnProperty(&#x27;uid&#x27;)) {
+      link.setUid(config.uid);
+    }
+    if (config.hasOwnProperty(&#x27;gid&#x27;)) {
+      link.setGid(config.gid);
+    }
+    if (config.hasOwnProperty(&#x27;path&#x27;)) {
+      link.setPath(config.path);
+    } else {
+      throw new Error(&#x27;Missing &#x22;path&#x22; property&#x27;);
+    }
+    if (config.hasOwnProperty(&#x27;atime&#x27;)) {
+      link.setATime(config.atime);
+    }
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      link.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      link.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      link.setBirthtime(config.birthtime);
+    }
+    return link;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+Note that if you want to create a directory with the default properties, you can provide an `Object` directly instead of calling
+ `mock.directory()`.
+
+### Creating symlinks
+
+Using a `string` or a `Buffer` is a shortcut for creating files with default properties.  Using an `Object` is a shortcut for creating
+ a directory with default properties.  There is no shortcut for creating symlinks.  To create a symlink, you need to call the [`
+mock.<span class="apidocCodeKeywordSpan">symlink</span>()`](#mocksymlinkproperties) function described below.
+
+### &#x3c;a id=&#x27;mocksymlinkproperties&#x27;&#x3e;`mock.symlink(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new symlinks.  Supported properties:
+
+* **path** - `string` Path to the source (required).
+* **mode** - `number` Symlink mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.filesystem.prototype" id="apidoc.module.mock-fs.filesystem.prototype">module mock-fs.filesystem.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.prototype.getItem" id="apidoc.element.mock-fs.filesystem.prototype.getItem">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.prototype.</span>getItem
+        <span class="apidocSignatureSpan">(filepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getItem = function (filepath) {
+  var parts = getPathParts(filepath);
+  var currentParts = getPathParts(process.cwd());
+  var item = this._root;
+  var itemPath = &#x27;/&#x27;;
+  var name;
+  for (var i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+    name = parts[i];
+    while (item instanceof SymbolicLink) {
+      // Symbolic link being traversed as a directory --- If link targets
+      // another symbolic link, resolve target&#x27;s path relative to the original
+      // link&#x27;s target, otherwise relative to the current item.
+      itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+      item = this.getItem(itemPath);
+    }
+    if (item) {
+      if (item instanceof Directory &#x26;&#x26; name !== currentParts[i]) {
+        // make sure traversal is allowed
+        if (!item.canExecute()) {
+          throw new FSError(&#x27;EACCES&#x27;, filepath);
+        }
+      }
+      item = item.getItem(name);
+    }
+    if (!item) {
+      break;
+    }
+    itemPath = path.resolve(itemPath, name);
+  }
+  return item;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var item = this._system.getRoot();
+var itemPath = &#x27;/&#x27;;
+var name, i, ii;
+for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+  name = parts[i];
+  while (item instanceof SymbolicLink) {
+    itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+    item = this._system.<span class="apidocCodeKeywordSpan">getItem</span>(itemPath);
+  }
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, filepath);
+  }
+  if (item instanceof Directory) {
+    itemPath = path.resolve(itemPath, name);
+    item = item.getItem(name);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.filesystem.prototype.getRoot" id="apidoc.element.mock-fs.filesystem.prototype.getRoot">
+        function <span class="apidocSignatureSpan">mock-fs.filesystem.prototype.</span>getRoot
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRoot = function () {
+  return this._root;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return maybeCallback(callback, this, function() {
+var realPath;
+if (Buffer.isBuffer(filepath)) {
+  filepath = filepath.toString();
+}
+var resolved = path.resolve(filepath);
+var parts = getPathParts(resolved);
+var item = this._system.<span class="apidocCodeKeywordSpan">getRoot</span>();
+var itemPath = &#x27;/&#x27;;
+var name, i, ii;
+for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+  name = parts[i];
+  while (item instanceof SymbolicLink) {
+    itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+    item = this._system.getItem(itemPath);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.item" id="apidoc.module.mock-fs.item">module mock-fs.item</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.item" id="apidoc.element.mock-fs.item.item">
+        function <span class="apidocSignatureSpan">mock-fs.</span>item
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Item() {
+
+  var now = Date.now();
+
+<span class="apidocCodeCommentSpan">  /**
+   * Access time.
+   * @type {Date}
+   */
+</span>  this._atime = new Date(now);
+
+  /**
+   * Change time.
+   * @type {Date}
+   */
+  this._ctime = new Date(now);
+
+  /**
+   * Birth time.
+   * @type {Date}
+   */
+  this._birthtime = new Date(now);
+
+  /**
+   * Modification time.
+   * @type {Date}
+   */
+  this._mtime = new Date(now);
+
+  /**
+   * Permissions.
+   */
+  this._mode = 438; // 0666
+
+  /**
+   * User id.
+   * @type {number}
+   */
+  this._uid = getUid();
+
+  /**
+   * Group id.
+   * @type {number}
+   */
+  this._gid = getGid();
+
+  /**
+   * Item number.
+   * @type {number}
+   */
+  this._id = ++counter;
+
+  /**
+   * Number of links to this item.
+   */
+  this.links = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.item.prototype" id="apidoc.module.mock-fs.item.prototype">module mock-fs.item.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.canExecute" id="apidoc.element.mock-fs.item.prototype.canExecute">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canExecute
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">canExecute = function () {
+  var uid = getUid();
+  var gid = getGid();
+  var can = false;
+  if (uid === 0) {
+    can = true;
+  } else if (uid === this._uid) {
+    can = (permissions.USER_EXEC &#x26; this._mode) === permissions.USER_EXEC;
+  } else if (gid === this._gid) {
+    can = (permissions.GROUP_EXEC &#x26; this._mode) === permissions.GROUP_EXEC;
+  } else {
+    can = (permissions.OTHER_EXEC &#x26; this._mode) === permissions.OTHER_EXEC;
+  }
+  return can;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // link&#x27;s target, otherwise relative to the current item.
+  itemPath = path.resolve(path.dirname(itemPath), item.getPath());
+  item = this.getItem(itemPath);
+}
+if (item) {
+  if (item instanceof Directory &#x26;&#x26; name !== currentParts[i]) {
+    // make sure traversal is allowed
+    if (!item.<span class="apidocCodeKeywordSpan">canExecute</span>()) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+  }
+  item = item.getItem(name);
+}
+if (!item) {
+  break;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.canRead" id="apidoc.element.mock-fs.item.prototype.canRead">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canRead
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">canRead = function () {
+  var uid = getUid();
+  var gid = getGid();
+  var can = false;
+  if (uid === 0) {
+    can = true;
+  } else if (uid === this._uid) {
+    can = (permissions.USER_READ &#x26; this._mode) === permissions.USER_READ;
+  } else if (gid === this._gid) {
+    can = (permissions.GROUP_READ &#x26; this._mode) === permissions.GROUP_READ;
+  } else {
+    can = (permissions.OTHER_READ &#x26; this._mode) === permissions.OTHER_READ;
+  }
+  return can;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  parent.addItem(path.basename(pathname), item);
+}
+if (descriptor.isRead()) {
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!item.<span class="apidocCodeKeywordSpan">canRead</span>()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+}
+if (descriptor.isWrite() &#x26;&#x26; !item.canWrite()) {
+  throw new FSError(&#x27;EACCES&#x27;, pathname);
+}
+if (descriptor.isTruncate()) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.canWrite" id="apidoc.element.mock-fs.item.prototype.canWrite">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>canWrite
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">canWrite = function () {
+  var uid = getUid();
+  var gid = getGid();
+  var can = false;
+  if (uid === 0) {
+    can = true;
+  } else if (uid === this._uid) {
+    can = (permissions.USER_WRITE &#x26; this._mode) === permissions.USER_WRITE;
+  } else if (gid === this._gid) {
+    can = (permissions.GROUP_WRITE &#x26; this._mode) === permissions.GROUP_WRITE;
+  } else {
+    can = (permissions.OTHER_WRITE &#x26; this._mode) === permissions.OTHER_WRITE;
+  }
+  return can;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!item.canRead()) {
+    throw new FSError(&#x27;EACCES&#x27;, pathname);
+  }
+}
+if (descriptor.isWrite() &#x26;&#x26; !item.<span class="apidocCodeKeywordSpan">canWrite</span>()) {
+  throw new FSError(&#x27;EACCES&#x27;, pathname);
+}
+if (descriptor.isTruncate()) {
+  item.setContent(&#x27;&#x27;);
+}
+if (descriptor.isTruncate() || descriptor.isAppend()) {
+  descriptor.setPosition(item.getContent().length);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getATime" id="apidoc.element.mock-fs.item.prototype.getATime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getATime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getATime = function () {
+  return this._atime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    dev: 8675309,
+    nlink: this.links,
+    uid: this.getUid(),
+    gid: this.getGid(),
+    rdev: 0,
+    blksize: 4096,
+    ino: this._id,
+    atime: this.<span class="apidocCodeKeywordSpan">getATime</span>(),
+    mtime: this.getMTime(),
+    ctime: this.getCTime(),
+    birthtime: this.getBirthtime()
+  };
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getBirthtime" id="apidoc.element.mock-fs.item.prototype.getBirthtime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getBirthtime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBirthtime = function () {
+  return this._birthtime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   gid: this.getGid(),
+   rdev: 0,
+   blksize: 4096,
+   ino: this._id,
+   atime: this.getATime(),
+   mtime: this.getMTime(),
+   ctime: this.getCTime(),
+   birthtime: this.<span class="apidocCodeKeywordSpan">getBirthtime</span>()
+ };
+};
+
+
+/**
+* Get the item&#x27;s string representation.
+* @return {string} String representation.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getCTime" id="apidoc.element.mock-fs.item.prototype.getCTime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getCTime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCTime = function () {
+  return this._ctime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   uid: this.getUid(),
+   gid: this.getGid(),
+   rdev: 0,
+   blksize: 4096,
+   ino: this._id,
+   atime: this.getATime(),
+   mtime: this.getMTime(),
+   ctime: this.<span class="apidocCodeKeywordSpan">getCTime</span>(),
+   birthtime: this.getBirthtime()
+ };
+};
+
+
+/**
+* Get the item&#x27;s string representation.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getGid" id="apidoc.element.mock-fs.item.prototype.getGid">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getGid
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getGid = function () {
+  return this._gid;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+if (mode &#x26;&#x26; process.getuid &#x26;&#x26; process.getgid) {
+  var itemMode = item.getMode();
+  if (item.getUid() === process.getuid()) {
+    if ((itemMode &#x26; (mode * 64)) !== mode * 64) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+  } else if (item.<span class="apidocCodeKeywordSpan">getGid</span>() === process.getgid()) {
+    if ((itemMode &#x26; (mode * 8)) !== mode * 8) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+  } else {
+    if ((itemMode &#x26; mode) !== mode) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getMTime" id="apidoc.element.mock-fs.item.prototype.getMTime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getMTime
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMTime = function () {
+  return this._mtime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    nlink: this.links,
+    uid: this.getUid(),
+    gid: this.getGid(),
+    rdev: 0,
+    blksize: 4096,
+    ino: this._id,
+    atime: this.getATime(),
+    mtime: this.<span class="apidocCodeKeywordSpan">getMTime</span>(),
+    ctime: this.getCTime(),
+    birthtime: this.getBirthtime()
+  };
+};
+
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getMode" id="apidoc.element.mock-fs.item.prototype.getMode">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getMode
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getMode = function () {
+  return this._mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Binding.prototype.access = function(filepath, mode, callback) {
+maybeCallback(callback, this, function() {
+  var item = this._system.getItem(filepath);
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, filepath);
+  }
+  if (mode &#x26;&#x26; process.getuid &#x26;&#x26; process.getgid) {
+    var itemMode = item.<span class="apidocCodeKeywordSpan">getMode</span>();
+    if (item.getUid() === process.getuid()) {
+      if ((itemMode &#x26; (mode * 64)) !== mode * 64) {
+        throw new FSError(&#x27;EACCES&#x27;, filepath);
+      }
+    } else if (item.getGid() === process.getgid()) {
+      if ((itemMode &#x26; (mode * 8)) !== mode * 8) {
+        throw new FSError(&#x27;EACCES&#x27;, filepath);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getStats" id="apidoc.element.mock-fs.item.prototype.getStats">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getStats
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getStats = function () {
+  return {
+    dev: 8675309,
+    nlink: this.links,
+    uid: this.getUid(),
+    gid: this.getGid(),
+    rdev: 0,
+    blksize: 4096,
+    ino: this._id,
+    atime: this.getATime(),
+    mtime: this.getMTime(),
+    ctime: this.getCTime(),
+    birthtime: this.getBirthtime()
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(filepath), item.getPath()));
+}
+if (!item) {
+  throw new FSError(&#x27;ENOENT&#x27;, filepath);
+}
+var stats = item.<span class="apidocCodeKeywordSpan">getStats</span>();
+
+// In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+// which should be filled with stat values.
+// In prior versions of Node, binding.stat simply returns a Stats instance.
+if (callback instanceof Float64Array) {
+  fillStatsArray(stats, callback);
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.getUid" id="apidoc.element.mock-fs.item.prototype.getUid">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>getUid
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getUid = function () {
+  return this._uid;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  maybeCallback(callback, this, function() {
+var item = this._system.getItem(filepath);
+if (!item) {
+  throw new FSError(&#x27;ENOENT&#x27;, filepath);
+}
+if (mode &#x26;&#x26; process.getuid &#x26;&#x26; process.getgid) {
+  var itemMode = item.getMode();
+  if (item.<span class="apidocCodeKeywordSpan">getUid</span>() === process.getuid()) {
+    if ((itemMode &#x26; (mode * 64)) !== mode * 64) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+  } else if (item.getGid() === process.getgid()) {
+    if ((itemMode &#x26; (mode * 8)) !== mode * 8) {
+      throw new FSError(&#x27;EACCES&#x27;, filepath);
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setATime" id="apidoc.element.mock-fs.item.prototype.setATime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setATime
+        <span class="apidocSignatureSpan">(atime)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setATime = function (atime) {
+  this._atime = atime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+Binding.prototype.utimes = function(pathname, atime, mtime, callback) {
+ maybeCallback(callback, this, function() {
+   var item = this._system.getItem(pathname);
+   if (!item) {
+     throw new FSError(&#x27;ENOENT&#x27;, pathname);
+   }
+   item.<span class="apidocCodeKeywordSpan">setATime</span>(new Date(atime * 1000));
+   item.setMTime(new Date(mtime * 1000));
+ });
+};
+
+
+/**
+* Update timestamps.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setBirthtime" id="apidoc.element.mock-fs.item.prototype.setBirthtime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setBirthtime
+        <span class="apidocSignatureSpan">(birthtime)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setBirthtime = function (birthtime) {
+  this._birthtime = birthtime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (config.hasOwnProperty(&#x27;ctime&#x27;)) {
+      file.setCTime(config.ctime);
+    }
+    if (config.hasOwnProperty(&#x27;mtime&#x27;)) {
+      file.setMTime(config.mtime);
+    }
+    if (config.hasOwnProperty(&#x27;birthtime&#x27;)) {
+      file.<span class="apidocCodeKeywordSpan">setBirthtime</span>(config.birthtime);
+    }
+    return file;
+  };
+};
+
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setCTime" id="apidoc.element.mock-fs.item.prototype.setCTime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setCTime
+        <span class="apidocSignatureSpan">(ctime)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCTime = function (ctime) {
+  this._ctime = ctime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (typeof content === &#x27;string&#x27;) {
+   content = new Buffer(content);
+ } else if (!Buffer.isBuffer(content)) {
+   throw new Error(&#x27;File content must be a string or buffer&#x27;);
+ }
+ this._content = content;
+ var now = Date.now();
+ this.<span class="apidocCodeKeywordSpan">setCTime</span>(new Date(now));
+ this.setMTime(new Date(now));
+};
+
+
+/**
+* Get file stats.
+* @return {Object} Stats properties.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setGid" id="apidoc.element.mock-fs.item.prototype.setGid">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setGid
+        <span class="apidocSignatureSpan">(gid)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setGid = function (gid) {
+  this.setCTime(new Date());
+  this._gid = gid;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Binding.prototype.chown = function(pathname, uid, gid, callback) {
+ maybeCallback(callback, this, function() {
+   var item = this._system.getItem(pathname);
+   if (!item) {
+     throw new FSError(&#x27;ENOENT&#x27;, pathname);
+   }
+   item.setUid(uid);
+   item.<span class="apidocCodeKeywordSpan">setGid</span>(gid);
+ });
+};
+
+
+/**
+* Change user and group owner.
+* @param {number} fd File descriptor.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setMTime" id="apidoc.element.mock-fs.item.prototype.setMTime">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setMTime
+        <span class="apidocSignatureSpan">(mtime)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setMTime = function (mtime) {
+  this._mtime = mtime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Binding.prototype.utimes = function(pathname, atime, mtime, callback) {
+ maybeCallback(callback, this, function() {
+   var item = this._system.getItem(pathname);
+   if (!item) {
+     throw new FSError(&#x27;ENOENT&#x27;, pathname);
+   }
+   item.setATime(new Date(atime * 1000));
+   item.<span class="apidocCodeKeywordSpan">setMTime</span>(new Date(mtime * 1000));
+ });
+};
+
+
+/**
+* Update timestamps.
+* @param {number} fd File descriptor.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setMode" id="apidoc.element.mock-fs.item.prototype.setMode">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setMode
+        <span class="apidocSignatureSpan">(mode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setMode = function (mode) {
+  this.setCTime(new Date());
+  this._mode = mode;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+  if (!(parent instanceof Directory)) {
+    throw new FSError(&#x27;ENOTDIR&#x27;, pathname);
+  }
+  item = new File();
+  if (mode) {
+    item.<span class="apidocCodeKeywordSpan">setMode</span>(mode);
+  }
+  parent.addItem(path.basename(pathname), item);
+}
+if (descriptor.isRead()) {
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, pathname);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.setUid" id="apidoc.element.mock-fs.item.prototype.setUid">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>setUid
+        <span class="apidocSignatureSpan">(uid)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setUid = function (uid) {
+  this.setCTime(new Date());
+  this._uid = uid;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*/
+Binding.prototype.chown = function(pathname, uid, gid, callback) {
+ maybeCallback(callback, this, function() {
+   var item = this._system.getItem(pathname);
+   if (!item) {
+     throw new FSError(&#x27;ENOENT&#x27;, pathname);
+   }
+   item.<span class="apidocCodeKeywordSpan">setUid</span>(uid);
+   item.setGid(gid);
+ });
+};
+
+
+/**
+* Change user and group owner.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.item.prototype.toString" id="apidoc.element.mock-fs.item.prototype.toString">
+        function <span class="apidocSignatureSpan">mock-fs.item.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  return &#x27;[&#x27; + this.constructor.name + &#x27;]&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {string} encoding The encoding for the return.
+ * @return {string|Buffer} The real path.
+ */
+Binding.prototype.realpath = function(filepath, encoding, callback) {
+return maybeCallback(callback, this, function() {
+  var realPath;
+  if (Buffer.isBuffer(filepath)) {
+    filepath = filepath.<span class="apidocCodeKeywordSpan">toString</span>();
+  }
+  var resolved = path.resolve(filepath);
+  var parts = getPathParts(resolved);
+  var item = this._system.getRoot();
+  var itemPath = &#x27;/&#x27;;
+  var name, i, ii;
+  for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.symlink" id="apidoc.module.mock-fs.symlink">module mock-fs.symlink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink.symlink" id="apidoc.element.mock-fs.symlink.symlink">
+        function <span class="apidocSignatureSpan">mock-fs.</span>symlink
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SymbolicLink() {
+  Item.call(this);
+
+<span class="apidocCodeCommentSpan">  /**
+   * Relative path to source.
+   * @type {string}
+   */
+</span>  this._path = undefined;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+Note that if you want to create a directory with the default properties, you can provide an `Object` directly instead of calling
+ `mock.directory()`.
+
+### Creating symlinks
+
+Using a `string` or a `Buffer` is a shortcut for creating files with default properties.  Using an `Object` is a shortcut for creating
+ a directory with default properties.  There is no shortcut for creating symlinks.  To create a symlink, you need to call the [`
+mock.<span class="apidocCodeKeywordSpan">symlink</span>()`](#mocksymlinkproperties) function described below.
+
+### &#x3c;a id=&#x27;mocksymlinkproperties&#x27;&#x3e;`mock.symlink(properties)`&#x3c;/a&#x3e;
+
+Create a factory for new symlinks.  Supported properties:
+
+* **path** - `string` Path to the source (required).
+* **mode** - `number` Symlink mode (permission and sticky bits).  Defaults to `0666`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink.super_" id="apidoc.element.mock-fs.symlink.super_">
+        function <span class="apidocSignatureSpan">mock-fs.symlink.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Item() {
+
+  var now = Date.now();
+
+<span class="apidocCodeCommentSpan">  /**
+   * Access time.
+   * @type {Date}
+   */
+</span>  this._atime = new Date(now);
+
+  /**
+   * Change time.
+   * @type {Date}
+   */
+  this._ctime = new Date(now);
+
+  /**
+   * Birth time.
+   * @type {Date}
+   */
+  this._birthtime = new Date(now);
+
+  /**
+   * Modification time.
+   * @type {Date}
+   */
+  this._mtime = new Date(now);
+
+  /**
+   * Permissions.
+   */
+  this._mode = 438; // 0666
+
+  /**
+   * User id.
+   * @type {number}
+   */
+  this._uid = getUid();
+
+  /**
+   * Group id.
+   * @type {number}
+   */
+  this._gid = getGid();
+
+  /**
+   * Item number.
+   * @type {number}
+   */
+  this._id = ++counter;
+
+  /**
+   * Number of links to this item.
+   */
+  this.links = 0;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mock-fs.symlink.prototype" id="apidoc.module.mock-fs.symlink.prototype">module mock-fs.symlink.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink.prototype.getPath" id="apidoc.element.mock-fs.symlink.prototype.getPath">
+        function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>getPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPath = function () {
+  return this._path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var parts = getPathParts(resolved);
+var item = this._system.getRoot();
+var itemPath = &#x27;/&#x27;;
+var name, i, ii;
+for (i = 0, ii = parts.length; i &#x3c; ii; ++i) {
+  name = parts[i];
+  while (item instanceof SymbolicLink) {
+    itemPath = path.resolve(path.dirname(itemPath), item.<span class="apidocCodeKeywordSpan">getPath</span>());
+    item = this._system.getItem(itemPath);
+  }
+  if (!item) {
+    throw new FSError(&#x27;ENOENT&#x27;, filepath);
+  }
+  if (item instanceof Directory) {
+    itemPath = path.resolve(itemPath, name);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink.prototype.getStats" id="apidoc.element.mock-fs.symlink.prototype.getStats">
+        function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>getStats
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getStats = function () {
+  var size = this._path.length;
+  var stats = Item.prototype.getStats.call(this);
+  stats.mode = this.getMode() | constants.S_IFLNK;
+  stats.size = size;
+  stats.blocks = Math.ceil(size / 512);
+  return stats;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (item instanceof SymbolicLink) {
+  item = this._system.getItem(
+      path.resolve(path.dirname(filepath), item.getPath()));
+}
+if (!item) {
+  throw new FSError(&#x27;ENOENT&#x27;, filepath);
+}
+var stats = item.<span class="apidocCodeKeywordSpan">getStats</span>();
+
+// In Node 7.7.0+, binding.stat accepts a Float64Array as the second argument,
+// which should be filled with stat values.
+// In prior versions of Node, binding.stat simply returns a Stats instance.
+if (callback instanceof Float64Array) {
+  fillStatsArray(stats, callback);
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mock-fs.symlink.prototype.setPath" id="apidoc.element.mock-fs.symlink.prototype.setPath">
+        function <span class="apidocSignatureSpan">mock-fs.symlink.prototype.</span>setPath
+        <span class="apidocSignatureSpan">(pathname)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setPath = function (pathname) {
+  this._path = pathname;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   if (!parent) {
+     throw new FSError(&#x27;ENOENT&#x27;, destPath);
+   }
+   if (!(parent instanceof Directory)) {
+     throw new FSError(&#x27;ENOTDIR&#x27;, destPath);
+   }
+   var link = new SymbolicLink();
+   link.<span class="apidocCodeKeywordSpan">setPath</span>(srcPath);
+   parent.addItem(path.basename(destPath), link);
+ });
+};
+
+
+/**
+* Read the contents of a symbolic link.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
