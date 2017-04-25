@@ -1,6 +1,6 @@
 # npmdoc-mock-fs
 
-#### api documentation for  [mock-fs (v4.2.0)](https://github.com/tschaub/mock-fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-mock-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mock-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mock-fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mock-fs)
+#### basic api documentation for  [mock-fs (v4.2.0)](https://github.com/tschaub/mock-fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-mock-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mock-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mock-fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mock-fs)
 
 #### A configurable mock file system.  You know, for testing.
 
@@ -71,7 +71,8 @@
         "pretest": "eslint benchmarks lib test",
         "test": "mocha --recursive test"
     },
-    "version": "4.2.0"
+    "version": "4.2.0",
+    "bin": {}
 }
 ```
 
